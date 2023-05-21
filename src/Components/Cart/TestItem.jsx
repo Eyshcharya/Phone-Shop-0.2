@@ -1,24 +1,13 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Plus, Minus } from '../../assets/icon';
-import { removeItem, addItem, reduceItem } from '../../Features/CartSlice';
-import { useState, useCallback } from 'react';
+import {
+  removeItem,
+  increaseItemCount,
+  decreaseItemCount,
+} from '../../Features/CartSlice';
 
 const TestItem = ({ id, title, img, price, amount }) => {
   const dispatch = useDispatch();
-
-  const items = JSON.parse(localStorage.getItem('itemsArray'));
-  const [cartItems, setCartItems] = useState(items);
-
-  const handleRemoveItem = useCallback(
-    (id) => {
-      const oldItems = JSON.parse(localStorage.getItem('itemsArray') || []);
-      const newCartItems = oldItems.filter((item) => item.id !== id);
-      setCartItems(newCartItems);
-      localStorage.setItem('itemsArray', JSON.stringify(cartItems));
-      console.log('okay');
-    },
-    [cartItems]
-  );
 
   return (
     <article className='cart-item'>
@@ -26,14 +15,7 @@ const TestItem = ({ id, title, img, price, amount }) => {
       <div>
         <h4>{title}</h4>
         <h4 className='item-price'>${price}</h4>
-        <button
-          className='remove-btn'
-          onClick={() => {
-            handleRemoveItem(id);
-          }}
-        >
-          Remove
-        </button>
+        <button className='remove-btn'>Remove</button>
       </div>
       <div>
         <button
@@ -53,9 +35,9 @@ const TestItem = ({ id, title, img, price, amount }) => {
           className='amount-btn'
           onClick={() => {
             if (amount === 1) {
-              dispatch(removeItem(id));
+              dispatch(increaseItemCount(id));
             }
-            dispatch(reduceItem({ id }));
+            dispatch(decreaseItemCount({ id }));
           }}
         >
           <Minus />
