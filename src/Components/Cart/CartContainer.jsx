@@ -1,24 +1,15 @@
 import { useSelector, useDispatch } from 'react-redux';
 import CartItem from './CartItem';
 import { OpenModal } from '../../Features/ModalSlice';
-import { useState } from 'react';
 
 const CartContainer = () => {
   const dispatch = useDispatch();
 
-  const { total, isClear, amount } = useSelector((store) => store.cart);
-
-  const items = JSON.parse(localStorage.getItem('itemsArray') || []);
-  const [cartItems, setCartItems] = useState(items);
+  const { total, amount, getCartItemArray } = useSelector(
+    (store) => store.cart
+  );
 
   const handleClear = () => {
-    if (isClear) {
-      return (
-        <footer>
-          <button className='btn clear-btn'>clear cart</button>
-        </footer>
-      );
-    }
     dispatch(OpenModal());
   };
 
@@ -39,7 +30,7 @@ const CartContainer = () => {
         <h2>your bag</h2>
       </header>
       <div>
-        {cartItems.map((item) => {
+        {getCartItemArray.map((item) => {
           return <CartItem key={item.id} {...item} />;
         })}
       </div>

@@ -1,7 +1,8 @@
+import { useSelector } from 'react-redux';
 import Items from './Items';
-import homeItems from '../../homeItems';
 
 const HomeContainer = () => {
+  const { homeItems } = useSelector((store) => store.home);
   return (
     <>
       <section className='home'>

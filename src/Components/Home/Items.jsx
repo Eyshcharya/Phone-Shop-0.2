@@ -1,22 +1,19 @@
 import { useDispatch } from 'react-redux';
-import { addToCart, addItem } from '../../Features/CartSlice';
+import { addItemToCart, increaseItemCount } from '../../Features/CartSlice';
 import { OpenModal } from '../../Features/ModalSlice';
 import { useState } from 'react';
 
 const Items = ({ id, img, title, amount, price }) => {
   const dispatch = useDispatch();
-
   const [inCart, setInCart] = useState(false);
 
   const addCartHandler = () => {
-    console.log('clicked');
     if (inCart) {
-      console.log('amount increaser');
-      dispatch(addItem({ id }));
+      dispatch(increaseItemCount({ id }));
+      return;
     } else {
-      console.log('added to cart');
       setInCart(true);
-      dispatch(addToCart({ id }));
+      dispatch(addItemToCart({ id }));
     }
   };
 

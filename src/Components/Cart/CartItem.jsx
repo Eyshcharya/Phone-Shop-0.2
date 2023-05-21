@@ -1,6 +1,10 @@
 import { useDispatch } from 'react-redux';
 import { Plus, Minus } from '../../assets/icon';
-import { removeItem, addItem, reduceItem } from '../../Features/CartSlice';
+import {
+  removeItem,
+  increaseItemCount,
+  decreaseItemCount,
+} from '../../Features/CartSlice';
 
 const CartItem = ({ id, img, title, amount, price }) => {
   const dispatch = useDispatch();
@@ -14,7 +18,7 @@ const CartItem = ({ id, img, title, amount, price }) => {
         <button
           className='remove-btn'
           onClick={() => {
-            dispatch(removeItem(id));
+            dispatch(removeItem({ id }));
           }}
         >
           Remove
@@ -24,7 +28,7 @@ const CartItem = ({ id, img, title, amount, price }) => {
         <button
           className='amount-btn'
           onClick={() => {
-            dispatch(addItem({ id }));
+            dispatch(increaseItemCount({ id }));
           }}
         >
           <Plus />
@@ -38,9 +42,9 @@ const CartItem = ({ id, img, title, amount, price }) => {
           className='amount-btn'
           onClick={() => {
             if (amount === 1) {
-              dispatch(removeItem(id));
+              dispatch(removeItem({ id }));
             }
-            dispatch(reduceItem({ id }));
+            dispatch(decreaseItemCount({ id }));
           }}
         >
           <Minus />

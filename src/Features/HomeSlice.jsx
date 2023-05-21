@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import homeItems from '../homeItems.js';
 
 const initialState = {
-  Items: homeItems,
+  homeItems: homeItems,
 };
 
 const HomeSlice = createSlice({
