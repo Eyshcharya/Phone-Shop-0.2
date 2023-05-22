@@ -1,4 +1,4 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Menu } from '../assets/icon';
 
 const Navbar = () => {
@@ -9,7 +9,9 @@ const Navbar = () => {
       <div className='menu-icon'>
         <Menu />
       </div>
-      <h3>Phone Shop</h3>
+      <a href='../../index.html'>
+        <h3>Phone Shop</h3>
+      </a>
       <div>
         <a href='../../Cart.html'>
           <img

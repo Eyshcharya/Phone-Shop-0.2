@@ -7,13 +7,22 @@ const BuildModal = () => {
   return (
     <aside className='modal-container'>
       <div className='modal'>
-        <h5>Still on Build</h5>
+        <h3>Still on Build</h3>
+        <div className='build'>
+          <div></div>
+          <img
+            className='build-img'
+            src='../../../public/icons/build2.png'
+            alt='onBuild'
+          />
+        </div>
         <button
+          className='close-btn'
           onClick={() => {
             dispatch(CloseModal());
           }}
         >
-          close
+          Close
         </button>
       </div>
     </aside>
