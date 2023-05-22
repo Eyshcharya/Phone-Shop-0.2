@@ -170,6 +170,16 @@ nav svg:hover {
   border-color: transparent;
 }
 
+.cart-icon {
+  width: 40px;
+  float: right;
+  transition: all 0.3s linear;
+  cursor: pointer;
+  animation: bounce 2s ease-in-out infinite;
+  position: fixed;
+  top: 1rem;
+  right: 3rem;
+}
 @keyframes bounce {
   0% {
     transform: scale(1);
@@ -181,22 +191,10 @@ nav svg:hover {
     transform: scale(1);
   }
 }
-
-.cart-icon {
-  width: 40px;
-  float: right;
-  transition: all 0.3s linear;
-  cursor: pointer;
-  animation: bounce 2s ease-in-out infinite;
-  position: fixed;
-  top: 1rem;
-  right: 3rem;
-}
 .amount-container {
   position: fixed;
   top: 2.5rem;
   right: 2.3rem;
-
   width: 1.75rem;
   height: 1.75rem;
   border-radius: 50%;
@@ -315,7 +313,8 @@ Home
   color: var(--clr-primary-dark);
   border-color: var(--clr-primary);
 }
-.buyNow-btn {
+.buyNow-btn,
+.close-btn {
   background: transparent;
   padding: 0.5rem 1rem;
   color: var(--clr-red-dark);
@@ -325,12 +324,20 @@ Home
   width: 120px;
   margin: 0.5rem 0.5rem;
 }
-.buyNow-btn:hover {
+.buyNow-btn:hover,
+.close-btn:hover {
   background: var(--clr-red-light);
   color: var(--clr-red-dark);
   border-color: var(--clr-red-light);
 }
 
+.build-img {
+  width: 80px;
+}
+.build {
+  display: grid;
+  grid-template-columns: 1fr 80px 1fr;
+}
 .home-footer {
   max-width: 100vw;
   min-height: 120px;
@@ -353,6 +360,7 @@ Home
   width: 30px;
   float: left;
 }
+
 /*
 =============== 
 Cart
