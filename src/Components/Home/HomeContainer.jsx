@@ -18,12 +18,20 @@ const HomeContainer = () => {
       </section>
       <footer className='home-footer'>
         <hr />
-        <p> Follow Us &copy; Phone Shop </p>
+        <p> Copyright &copy; 2023 · Phone Shop </p>
         <div className='footer-container'>
           <div></div>
-          <img src='/icons/facebook.png' alt='facebook' />
-          <img src='/icons/instagram.png' alt='instagram' />
-          <img src='/icons/twitter.png' alt='twitter' />
+
+          <a href='#'>
+            <img src='/icons/facebook.png' alt='facebook' />
+          </a>
+          <a href='#'>
+            <img src='/icons/instagram.png' alt='instagram' />
+          </a>
+          <a href='#'>
+            <img src='/icons/twitter.png' alt='twitter' />
+          </a>
+
           <div></div>
         </div>
       </footer>

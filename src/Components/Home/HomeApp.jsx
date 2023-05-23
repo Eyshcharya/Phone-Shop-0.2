@@ -4,22 +4,36 @@ import HomeContainer from './HomeContainer';
 import BuildModal from './BuildModal';
 import { useEffect } from 'react';
 import { calculateTotal } from '../../Features/CartSlice';
+import { getItems } from '../../Features/HomeSlice';
 
 const HomeApp = () => {
   const dispatch = useDispatch();
-  const { isOpen } = useSelector((store) => store.modal);
   const { getCartItemArray } = useSelector((store) => store.cart);
+  const { isLoading } = useSelector((store) => store.home);
+  const { isOpen } = useSelector((store) => store.modal);
 
   useEffect(() => {
     dispatch(calculateTotal());
   }, [getCartItemArray]);
 
+  useEffect(() => {
+    dispatch(getItems('random'));
+  }, []);
+
+  if (isLoading) {
+    return (
+      <div className='loading'>
+        <h1>Loading...</h1>
+      </div>
+    );
+  }
+
   return (
-    <div>
+    <main>
       {isOpen && <BuildModal />}
       <Navbar />
       <HomeContainer />
-    </div>
+    </main>
   );
 };
 export default HomeApp;
