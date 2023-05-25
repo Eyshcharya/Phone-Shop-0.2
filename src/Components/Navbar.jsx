@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { Menu } from '../assets/icon';
-
+import { Link } from 'react-router-dom';
 const Navbar = () => {
   const { amount } = useSelector((store) => store.cart);
 
@@ -9,17 +9,19 @@ const Navbar = () => {
       <div className='menu-icon'>
         <Menu />
       </div>
-      <a href='../../index.html'>
+      <Link to='/'>
         <h3>Phone Shop</h3>
-      </a>
+      </Link>
+
       <div>
-        <a href='../../Cart.html'>
+        <Link to='/cart'>
           <img
             className='cart-icon'
             src='/icons/fast-cart.png'
             alt='cart icon'
           />
-        </a>
+        </Link>
+
         <div className='amount-container'>{amount}</div>
       </div>
     </nav>
