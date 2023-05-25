@@ -8,14 +8,7 @@ const BuildModal = () => {
     <aside className='modal-container'>
       <div className='modal'>
         <h3>Still on Build</h3>
-        <div className='build'>
-          <div></div>
-          <img
-            className='build-img'
-            src='../../../public/icons/build2.png'
-            alt='onBuild'
-          />
-        </div>
+        <div className='build'></div>
         <button
           className='close-btn'
           onClick={() => {
